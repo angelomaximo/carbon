@@ -16,4 +16,8 @@ addElement.addEventListener('click', (e) => {
     let elementHTML = `<label class="element">Preferred*: <input class="element" type="text" placeholder="enter"></label>`;
     console.log(elementHTML);
     sec.innerHTML = elementHTML;
+
+    // Display the entire code of main.
+    console.log(main);
 })
+
