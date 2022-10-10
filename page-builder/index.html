@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page builder</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./img/hades.png">
+</head>
+<body>
+    <div class="toolbar">
+        <div class="begin">
+            <img src="./img/hades.png">   
+            <button>Selector</button>   
+            <button id="addSection">Section</button>   
+            <button id="addElement">Elements</button>   
+        </div>
+
+        <div class="middle">
+            <a href="#">folder</a>
+            <p>/</p>
+            <p>currentPage</p>
+        </div>
+
+        <div class="end">
+            <button>Profile</button>   
+            <button>View</button>   
+            <button>Code</button>   
+            <button>Publish</button>   
+        </div>
+
+    </div>
+
+    <div class="leftBar">
+        <h3># SECTION 1</h3>
+    </div>
+
+    <div class="rightBar">
+        <div class="rightSelector">
+            <h3>WIDTH</h3>
+            <br>
+            <label>Min: <input type="text"></label>
+            <br>
+            <label>Preferred*: <input type="text"></label>
+            <br>
+            <label>Max: <input type="text"></label>    
+        </div>
+
+        <br>
+        <hr>
+        <br>
+
+        <div class="rightSelector">
+            <h3>PADDING</h3>
+            <br>
+            <label>General: <input type="text"></label>
+            <br>
+            <label>Top: <input type="text"></label>
+            <br>    
+            <label>Right: <input type="text"></label>
+            <br>    
+            <label>Bottom: <input type="text"></label>
+            <br>
+            <label>Left: <input type="text"></label>
+            <br>    
+        </div>
+
+        <br>
+        <hr>
+        <br>
+
+        <div class="rightSelector">
+            <h3>BACKGROUND</h3>
+            <br>
+            <label>Color: <input type="text"></label>
+            <br>    
+        </div>
+
+        <br>
+        <hr>
+        <br>
+
+    </div>
+
+    <div id="main" class="main">
+
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
