@@ -5,44 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page builder</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="./img/hades.png">
 </head>
 <body>
-    <div class="toolbar">
+    <div class="topbar">
         <div class="begin">
             <img src="./img/hades.png">   
-            <button>Selector</button>   
-            <button id="addSection">Section</button>   
-            <button id="addComponent">Components</button>   
+            <img src="./img/section.png" id="addSection">  
+            <img src="./img/components.png" id="addComponent">
         </div>
 
         <div class="middle">
-            <a href="#">folder</a>
-            <p>/</p>
-            <p>currentPage</p>
+            <div style="display: flex;">
+                <a href="#">folder</a>
+                <p>/</p>
+                <p>currentPage</p>    
+            </div>
         </div>
 
         <div class="end">
-            <button>Profile</button>   
-            <button>View</button>   
-            <button>Code</button>   
-            <button>Publish</button>   
+            <img src="./img/user.png">
+            <img src="./img/arrow.png"> <!-- undo --> 
+            <img style="-webkit-transform: scaleX(-1); transform: scaleX(-1);" src="./img/arrow.png"> <!-- redo -->
+            <img src="./img/play.png">
+            <button class="btn btn-outline-light">Publish</button>   
         </div>
 
-        
+
     </div>
 
     <div class="leftBar">
-        <button class="btn btn-outline-secondary">LAYERS</button>
+        <button class="btn btn-secondary active">LAYERS</button>
         <button class="btn btn-secondary">DIRECTORY</button>
         <hr>
         <p>Body</p>
     </div>
 
     <div class="rightBar">
-        <button class="btn btn-outline-secondary">EDITOR</button>
+        <button class="btn btn-secondary active">EDITOR</button>
         <button class="btn btn-secondary">IDE</button>
         <hr>
         <p>.selectedElement</p>
@@ -99,6 +101,8 @@
 
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
     <script src="./script.js"></script>
 </body>
 </html>

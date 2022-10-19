@@ -16,7 +16,7 @@ hr {
     background-color: #333;
 }
 
-.toolbar {
+.topbar {
     height: 60px;
     width: 100%;
     background-color: rgba(25, 25, 25, 95%);
@@ -31,13 +31,14 @@ hr {
     padding: 16px;
 }
 
-.toolbar img, button {
+.topbar img, button {
     cursor: pointer;
 }
 
-button {
-    padding: 0px 6px;
+.topbar p {
+    margin: 0;
 }
+
 
 .begin {
     display: flex;
@@ -109,8 +110,8 @@ button {
 
 
 .section {
-    height: 100px;
-    background-color: steelblue;
+    height: auto;
+    background-color: gray;
     z-index: -1;
 }
 
