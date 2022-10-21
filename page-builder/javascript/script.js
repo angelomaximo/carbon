@@ -1,45 +1,10 @@
-const addSection = document.getElementById('addSection');
-const addComponent = document.getElementById('addComponent');
+const frame = document.getElementById('frame');
+const alertBtn = document.getElementById('alertBtn');
 
-const main = document.getElementById('main');
-
-addSection.addEventListener('click', (e) => {
-    let sectionTxt = `<div id="sec" class="section"></div>`;
-    console.log(sectionTxt);
-    main.innerHTML = sectionTxt;
+alertBtn.addEventListener('click', (e) => {
+  let x = bootstrap.components.alert.getAlertPrimary('Hello World');
+  frame.innerHTML += x;
 })
-
-addComponent.addEventListener('click', (e) => {
-    const sec = document.getElementById('sec');
-
-    let elementHTML = bootstrap.components.card.getCard('./img/hades.png','Hello', 'world', 'read more bout tha shi');
-    console.log(elementHTML);
-    sec.innerHTML = elementHTML;
-
-    // Display the entire code of main.
-    console.log(main);
-})
-
-
-
-const components = {
-    getAlertRed(text) { 
-        return `<p style="padding: 16px 24px; background-color: red; border: 1px solid darkred; color: white;">${text}</p>`;
-    },
-    getAlertYellow(text) { 
-        return `<p style="padding: 16px 24px; background-color: yellow; border: 1px solid darkred; color: black;">${text}</p>`;
-    },
-    getBadge(text) {
-        return ``;
-    },
-
-    'button': '<button style="display: block; padding: 10px 16px; background-color: rgb(195, 31, 31); color: #fff; cursor: pointer; border: none; border-radius: 6px; font-weight: bold;" class="element">Button</button>',
-    'p': '<p>Paragraph</p>',
-    'form': '<form><label class="element">Label: <input class="element" type="text" placeholder="placeholder"></label>'
-
-}
-
-const build = {}
 
 const bootstrap = {
     "components": {

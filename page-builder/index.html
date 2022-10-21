@@ -6,103 +6,179 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page builder</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/pagebuilder.css">
     <link rel="icon" href="./img/hades.png">
 </head>
 <body>
-    <div class="topbar">
-        <div class="begin">
-            <img src="./img/hades.png">   
-            <img src="./img/section.png" id="addSection">  
-            <img src="./img/components.png" id="addComponent">
-        </div>
 
-        <div class="middle">
-            <div style="display: flex;">
-                <a href="#">folder</a>
-                <p>/</p>
-                <p>currentPage</p>    
+    <div id="frame" class="frame">
+    </div>
+
+    <div class="bar">
+        <div class="navbar bg-dark" style="padding-left: 2px; padding-right: 18px;">
+            <div class="nav-item">
+                <button class="btn">
+                    <img src="./img/hades.png" style="height: 40px;" alt="hades">
+                </button>
             </div>
+            <div class="nav-item">
+                <button class="btn">
+                    <img src="./img/user.png" style="height: 40px;" alt="hades">
+                </button>
+                <button class="nav-item btn">
+                    <img src="./img/arrow.png" style="height: 40px;" alt="hades">
+                </button>
+                <button class="nav-item btn">
+                    <img src="./img/arrow.png" style="height: 40px; -webkit-transform: scaleX(-1); transform: scaleX(-1);" alt="hades">
+                </button>
+                <button class="nav-item btn">
+                    <img src="./img/play.png" style="height: 40px;" alt="hades">
+                </button>
+                <button class="nav-item btn btn-outline-light">
+                    Publish
+                </button>    
+            </div>        
         </div>
+        <div class="tabs bg-dark">
+            <div class="tab tab1">
+                <button class="btn btn-outline-light">
+                    Overview ▼
+                </button>
+                <div class="tab-body">
+                    <br>
+                    <p>HTML<br>-Body<br>--Navbar<br>--Header<br>--Section</p>
+                </div>
+            </div>
+            <div class="tab tab2">
+                <button class="btn btn-outline-light">
+                    Sections ▼
+                </button>
+                <div class="tab-body">
+                    <br>
+                    <button id="addSection" class="btn btn-secondary">
+                        + Add plain section
+                    </button>
+                </div>
 
-        <div class="end">
-            <img src="./img/user.png">
-            <img src="./img/arrow.png"> <!-- undo --> 
-            <img style="-webkit-transform: scaleX(-1); transform: scaleX(-1);" src="./img/arrow.png"> <!-- redo -->
-            <img src="./img/play.png">
-            <button class="btn btn-outline-light">Publish</button>   
-        </div>
+            </div>
+            <div class="tab tab3">
+                <button class="btn btn-outline-light">
+                    Components ▼
+                </button>
+                <div class="tab-body">
+                    <br>
 
+                    <button class="btn btn-secondary">
+                        Accordion
+                    </button>
 
+                    <button id="alertBtn" class="btn btn-secondary">
+                        Alert
+                    </button>
+                    
+                    <button class="btn btn-secondary">
+                        Badge
+                    </button>
+                    
+                    <button class="btn btn-secondary">
+                        Breadcrumb
+                    </button>
+
+                    <button class="btn btn-secondary">
+                        Buttons
+                    </button>
+
+                    <button class="btn btn-secondary">
+                        Button group
+                    </button>
+
+                    <button class="btn btn-secondary">
+                        Card
+                    </button>
+
+                    <button class="btn btn-secondary">
+                        Carousel
+                    </button>
+
+                    <button class="btn btn-secondary">
+                        Close button
+                    </button>
+
+                    <button class="btn btn-secondary">
+                        Collapse
+                    </button>
+
+                    <button class="btn btn-secondary">
+                        Dropdowns
+                    </button>
+
+                    <button class="btn btn-secondary">
+                        List group
+                    </button>
+
+                    <button class="btn btn-secondary">
+                        Modal
+                    </button>
+
+                    <button class="btn btn-secondary">
+                        Navbar
+                    </button>
+
+                    <button class="btn btn-secondary">
+                        Navs & tabs
+                    </button>
+
+                    <button class="btn btn-secondary">
+                        Offcanvas
+                    </button>
+
+                    <button class="btn btn-secondary">
+                        Pagination
+                    </button>
+
+                    <button class="btn btn-secondary">
+                        Placeholders
+                    </button>
+
+                    <button class="btn btn-secondary">
+                        Popovers
+                    </button>
+
+                    <button class="btn btn-secondary">
+                        Progress
+                    </button>
+
+                    <button class="btn btn-secondary">
+                        Scrollspy
+                    </button>
+
+                    <button class="btn btn-secondary">
+                        Spinners
+                    </button>
+
+                    <button class="btn btn-secondary">
+                        Toasts
+                    </button>
+
+                    <button class="btn btn-secondary">
+                        Tooltips
+                    </button>
+                </div>
+            </div>
+            <div class="tab tab4">
+                <button class="btn btn-outline-light">
+                    Editor ▼
+                </button>
+                <div class="tab-body">
+
+                </div>
+            </div>
+        </div>    
     </div>
 
-    <div class="leftBar">
-        <button class="btn btn-secondary active">LAYERS</button>
-        <button class="btn btn-secondary">DIRECTORY</button>
-        <hr>
-        <p>Body</p>
-    </div>
-
-    <div class="rightBar">
-        <button class="btn btn-secondary active">EDITOR</button>
-        <button class="btn btn-secondary">IDE</button>
-        <hr>
-        <p>.selectedElement</p>
-        <br>
-        <hr>
-        <br>
-        <div class="rightSelector">
-            <h3>WIDTH</h3>
-            <br>
-            <label>Min: <input type="text"></label>
-            <br>
-            <label>Preferred*: <input type="text"></label>
-            <br>
-            <label>Max: <input type="text"></label>    
-        </div>
-
-        <br>
-        <hr>
-        <br>
-
-        <div class="rightSelector">
-            <h3>PADDING</h3>
-            <br>
-            <label>General: <input type="text"></label>
-            <br>
-            <label>Top: <input type="text"></label>
-            <br>    
-            <label>Right: <input type="text"></label>
-            <br>    
-            <label>Bottom: <input type="text"></label>
-            <br>
-            <label>Left: <input type="text"></label>
-            <br>    
-        </div>
-
-        <br>
-        <hr>
-        <br>
-
-        <div class="rightSelector">
-            <h3>BACKGROUND</h3>
-            <br>
-            <label>Color: <input type="text"></label>
-            <br>    
-        </div>
-
-        <br>
-        <hr>
-        <br>
-
-    </div>
-
-    <div id="main" class="main">
-
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
-    <script src="./script.js"></script>
+    <script src="./javascript/script.js"></script>
 </body>
 </html>
