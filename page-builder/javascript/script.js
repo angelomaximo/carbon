@@ -17,7 +17,7 @@ const dropdownBtn = document.getElementById('dropdownBtn');
 
 
 alertBtn.addEventListener('click', (e) => {
-  let x = new Alert('Money rain!!!!');
+  let x = new Alert('Warning Text');
 
   frame.innerHTML += x.getAlertPrimary();
 })
@@ -540,7 +540,7 @@ class Alert {
 
 
 const basicThemes = {
-  getNavbarBasic(logoSrc = './img/hades.png',brandName = 'brand name', 
+  getNavbarBasic(logoSrc = './img/hades.png', brandName = 'brand name', 
   firstItem = 'First item', secondItem = 'Second item', thirdItem = 'Third item', buttonText = 'button') {
       return (`
       <!--NAV BASIC-->
@@ -580,10 +580,10 @@ const basicThemes = {
   
           <div class="col-lg-7">
             <div style="min-width: 450px; max-height: 450px;" class="">
-              <h1 style="font-size: clamp(25px, 70px, 100px);">Digitalize your business with <span class="text-danger">Hades</span></h1>
-              <p class="pt-1 pb-4 text-secondary">Millions of brands of all sizes trust Hades to create their tech infrastructure, build customer relationships, and grow their business in-store and online.</p>
-              <a class="btn btn-primary pb-3 pt-3 ps-5 pe-5 me-3" role="button">Get started</a>
-              <a class="btn btn-outline-primary pb-3 pt-3 ps-5 pe-5" role="button">Contact sales</a>
+              <h1 style="font-size: clamp(25px, 70px, 100px);">${headline}</h1>
+              <p class="pt-1 pb-4 text-secondary">${subHeadline}</p>
+              <a class="btn btn-primary pb-3 pt-3 ps-5 pe-5 me-3" role="button">${btnTxt1}</a>
+              <a class="btn btn-outline-primary pb-3 pt-3 ps-5 pe-5" role="button">${btnTxt2}</a>
             </div>
           </div>
   
@@ -598,7 +598,7 @@ const basicThemes = {
   },
   getFeaturesBasic(headline, subHeadline, featureTitle1, featureTxt1, btnTxt1, 
     featureTitle2, featureTxt2, btnTxt2, 
-    featureTitle3, featureTxt3, btnTxt3,) {
+    featureTitle3, featureTxt3, btnTxt3) {
       return (`
       <!--FEATURES BASIC-->
       <section style="margin-top: 200px;" class="text-white bg-dark shadow-lg rounded-circle py-5 mx-2">
@@ -828,3 +828,43 @@ footerBasicBtn.addEventListener('click', (e) => {
   let x = basicThemes.getFooterBasic();
   frame.innerHTML += x;
 })
+
+
+const navbarBasicForm = document.getElementById('navbarBasicForm');
+navbarBasicForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  // parameters: 
+  // logoSrc, brandName, firstItem, secondItem, thirdItem, buttonText
+
+  const navbarLogo = document.getElementById('navbarLogo').value;
+  const navbarBrandname = document.getElementById('navbarBrandname').value;
+  const navbarFirstItem = document.getElementById('navbarFirstItem').value;
+  const navbarSecondItem = document.getElementById('navbarSecondItem').value;
+  const navbarThirdItem = document.getElementById('navbarThirdItem').value;
+  const navbarBtnTxt = document.getElementById('navbarBtnTxt').value;
+
+  let x = basicThemes.getNavbarBasic(navbarLogo, navbarBrandname,
+    navbarFirstItem, navbarSecondItem, navbarThirdItem,
+    navbarBtnTxt);
+  
+  frame.innerHTML += x;
+});
+
+const heroBasicForm = document.getElementById('heroBasicForm');
+heroBasicForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  // parameters: 
+  // logoSrc, brandName, firstItem, secondItem, thirdItem, buttonText
+
+  const heroHeadline = document.getElementById('heroHeadline').value;
+  const heroSubHeadline = document.getElementById('heroSubHeadline').value;
+  const btnTxt1 = document.getElementById('btnTxt1').value;
+  const btnTxt2 = document.getElementById('btnTxt2').value;
+
+  let x = basicThemes.getHeroBasic(heroHeadline, heroSubHeadline,
+    btnTxt1, btnTxt2);
+  
+  frame.innerHTML += x;
+});
