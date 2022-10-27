@@ -40,7 +40,7 @@
             </div>        
         </div>
         <div class="tabs bg-dark">
-            <div class="tab tab1 overview">
+            <div class="tab overview">
                 <button class="btn btn-outline-light">
                     Overview ▼
                 </button>
@@ -49,7 +49,7 @@
                     <p>HTML<br>-Body<br>--Navbar<br>--Header<br>--Section</p>
                 </div>
             </div>
-            <div class="tab tab2 sections">
+            <div class="tab sections">
                 <button class="btn btn-outline-light">
                     Sections ▼
                 </button>
@@ -179,7 +179,7 @@
                 </div>
 
             </div>
-            <div class="tab tab3 components">
+            <div class="tab components">
                 <button class="btn btn-outline-light">
                     Components ▼
                 </button>
@@ -337,12 +337,25 @@
                     </button>
                 </div>
             </div>
-            <div class="tab tab4 editor">
+            <div class="tab editor">
                 <button class="btn btn-outline-light">
                     Editor ▼
                 </button>
                 <div class="tab-body">
-
+                    <br>
+                    <form id="editorForm" action="">
+                        <fieldset>
+                            <legend>Alert</legend>
+                            <label>Content:</label>
+                            <input id="content" class="form-control" type="text">
+                            <br>
+                            <label>Style</label>
+                            <input id="style" class="form-control" type="text">
+    
+                            <br>
+                            <button type="submit" id="saveEdit" class="btn btn-success px-5" role="button">Save</button>
+                        </fieldset>
+                    </form>
                 </div>
             </div>
         </div>    
