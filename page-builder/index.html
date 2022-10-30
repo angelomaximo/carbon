@@ -44,9 +44,9 @@
                 <button class="btn btn-outline-light">
                     Overview ▼
                 </button>
-                <div class="tab-body">
+                <div id="overview" class="tab-body">
                     <br>
-                    <p>HTML<br>-Body<br>--Navbar<br>--Header<br>--Section</p>
+
                 </div>
             </div>
             <div class="tab sections">
@@ -179,22 +179,26 @@
                 </div>
 
             </div>
-            <div class="tab components">
+            <div class="tab elements">
                 <button class="btn btn-outline-light">
                     Components ▼
                 </button>
                 <div class="tab-body">
                     <br>
 
-                    <button class="btn btn-secondary">
+                    <button id="div" class="btn btn-secondary">
                         div
                     </button>
 
-                    <button class="btn btn-secondary">
+                    <button id="button" class="btn btn-secondary">
+                        button
+                    </button>
+
+                    <button id="paragraph" class="btn btn-secondary">
                         Paragraph
                     </button>
 
-                    <button class="btn btn-secondary">
+                    <button id="header" class="btn btn-secondary">
                         h1
                     </button>
 
@@ -237,104 +241,6 @@
                     <button class="btn btn-secondary">
                         column
                     </button>
-
-                    <p style="margin-bottom: 0px; margin-top: 6px;">BOOTSTRAP</p>
-
-                    <button class="btn btn-warning">
-                        Accordion
-                    </button>
-
-                    <button id="alertBtn" class="btn btn-outline-warning">
-                        Alert
-                    </button>
-                    
-                    <button class="btn btn-warning">
-                        Badge
-                    </button>
-                    
-                    <button id="breadcrumbBtn" class="btn btn-outline-warning">
-                        Breadcrumb
-                    </button>
-
-                    <button id="buttonBtn" class="btn btn-outline-warning">
-                        Buttons
-                    </button>
-
-                    <button class="btn btn-warning">
-                        Button group
-                    </button>
-
-                    <button id="cardBtn" class="btn btn-outline-warning">
-                        Card
-                    </button>
-
-                    <button class="btn btn-warning">
-                        Carousel
-                    </button>
-
-                    <button class="btn btn-warning">
-                        Close button
-                    </button>
-
-                    <button class="btn btn-warning">
-                        Collapse
-                    </button>
-
-                    <button id="dropdownBtn" class="btn btn-outline-warning">
-                        Dropdowns
-                    </button>
-
-                    <button class="btn btn-warning">
-                        List group
-                    </button>
-
-                    <button class="btn btn-warning">
-                        Modal
-                    </button>
-
-                    <button id="navbarBtn" class="btn btn-outline-warning">
-                        Navbar
-                    </button>
-
-                    <button class="btn btn-warning">
-                        Navs & tabs
-                    </button>
-
-                    <button class="btn btn-warning">
-                        Offcanvas
-                    </button>
-
-                    <button class="btn btn-warning">
-                        Pagination
-                    </button>
-
-                    <button class="btn btn-warning">
-                        Placeholders
-                    </button>
-
-                    <button class="btn btn-warning">
-                        Popovers
-                    </button>
-
-                    <button class="btn btn-warning">
-                        Progress
-                    </button>
-
-                    <button class="btn btn-warning">
-                        Scrollspy
-                    </button>
-
-                    <button class="btn btn-warning">
-                        Spinners
-                    </button>
-
-                    <button class="btn btn-warning">
-                        Toasts
-                    </button>
-
-                    <button class="btn btn-warning">
-                        Tooltips
-                    </button>
                 </div>
             </div>
             <div class="tab editor">
@@ -344,17 +250,17 @@
                 <div class="tab-body">
                     <br>
                     <form id="editorForm" action="">
-                        <fieldset>
-                            <legend>Alert</legend>
+                        <fieldset id="fieldset">
+                            
+                            <!-- <legend>id</legend>
                             <label>Content:</label>
                             <input id="content" class="form-control" type="text">
                             <br>
                             <label>Style</label>
-                            <input id="style" class="form-control" type="text">
-    
-                            <br>
-                            <button type="submit" id="saveEdit" class="btn btn-success px-5" role="button">Save</button>
+                            <input id="style" class="form-control" type="text"> -->
                         </fieldset>
+                        <br>
+                        <button type="submit" id="saveEdit" class="btn btn-success px-5" role="button">Save</button>
                     </form>
                 </div>
             </div>
@@ -366,5 +272,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
     
     <script type="module" src="./javascript/script.js"></script>
+    <script type="module" src="./javascript/sectionThemes.js"></script>
 </body>
 </html>

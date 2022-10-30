@@ -31,7 +31,7 @@ const basicThemes = {
         </div>
       \n</nav>`)
   },
-  getHeroBasic(headline, subHeadline, btnTxt1, btnTxt2) {
+  getHeroBasic(headline = 'hero headline', subHeadline = 'hero subheadline', btnTxt1 = 'button', btnTxt2 = 'button') {
       return (`
       <!--HERO BASIC-->
       <section style="margin-top: 100px;" class="container">
@@ -246,6 +246,87 @@ const basicThemes = {
       \n</footer>`);
   }
 }
+
+const navbarBasicBtn = document.getElementById('navbarBasicBtn');
+const heroBasicBtn = document.getElementById('heroBasicBtn');
+const featuresBasicBtn = document.getElementById('featuresBasicBtn');
+const testimonialBasicBtn = document.getElementById('testimonialBasicBtn');
+const calltoactionBasicBtn = document.getElementById('calltoactionBasicBtn');
+const footerBasicBtn = document.getElementById('footerBasicBtn');
+
+navbarBasicBtn.addEventListener('click', (e) => {
+  // parameters: 
+  // logoSrc, brandName, firstItem, secondItem, thirdItem, buttonText
+  let x = basicThemes.getNavbarBasic('./img/maxston-logo.png');
+  frame.innerHTML += x;
+})
+
+heroBasicBtn.addEventListener('click', (e) => {
+  // parameters:
+  // 
+  let x = basicThemes.getHeroBasic();
+  frame.innerHTML += x;
+})
+
+featuresBasicBtn.addEventListener('click', (e) => {
+  let x = basicThemes.getFeaturesBasic();
+  frame.innerHTML += x;
+})
+
+testimonialBasicBtn.addEventListener('click', (e) => {
+  let x = basicThemes.getTestimonialBasic();
+  frame.innerHTML += x;
+})
+
+calltoactionBasicBtn.addEventListener('click', (e) => {
+  let x = basicThemes.getCalltoActionBasic();
+  frame.innerHTML += x;
+})
+
+footerBasicBtn.addEventListener('click', (e) => {
+  let x = basicThemes.getFooterBasic();
+  frame.innerHTML += x;
+})
+
+
+const navbarBasicForm = document.getElementById('navbarBasicForm');
+navbarBasicForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  // parameters: 
+  // logoSrc, brandName, firstItem, secondItem, thirdItem, buttonText
+
+  const navbarLogo = document.getElementById('navbarLogo').value;
+  const navbarBrandname = document.getElementById('navbarBrandname').value;
+  const navbarFirstItem = document.getElementById('navbarFirstItem').value;
+  const navbarSecondItem = document.getElementById('navbarSecondItem').value;
+  const navbarThirdItem = document.getElementById('navbarThirdItem').value;
+  const navbarBtnTxt = document.getElementById('navbarBtnTxt').value;
+
+  let x = basicThemes.getNavbarBasic(navbarLogo, navbarBrandname,
+    navbarFirstItem, navbarSecondItem, navbarThirdItem,
+    navbarBtnTxt);
+  
+  frame.innerHTML += x;
+});
+
+const heroBasicForm = document.getElementById('heroBasicForm');
+heroBasicForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  // parameters: 
+  // logoSrc, brandName, firstItem, secondItem, thirdItem, buttonText
+
+  const heroHeadline = document.getElementById('heroHeadline').value;
+  const heroSubHeadline = document.getElementById('heroSubHeadline').value;
+  const btnTxt1 = document.getElementById('btnTxt1').value;
+  const btnTxt2 = document.getElementById('btnTxt2').value;
+
+  let x = basicThemes.getHeroBasic(heroHeadline, heroSubHeadline,
+    btnTxt1, btnTxt2);
+  
+  frame.innerHTML += x;
+});
 
 
 export { basicThemes }

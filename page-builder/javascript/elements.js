@@ -1,3 +1,7 @@
+// cl == class
+// you can add a new element by incrementing the current ID or changing
+// COPY AND PASTE: return (`< id="${this.id}" class="${this.cl}" style="${this.style}">`)
+
 class Element {
     constructor(id, cl, style) {
         this.id = id;
@@ -182,10 +186,16 @@ class Anchor extends Element {
   }
 }
 
-class Button extends Element { // fix
+class Button extends Element { // tbc
   constructor(id, cl, style, content) {
     super(id, cl, style)
     this.content = content;
+  }
+  getContent() {
+    return this.content;
+  }
+  setContent(newContent) {
+    this.content = newContent;
   }
 
   getButton() {
@@ -193,7 +203,7 @@ class Button extends Element { // fix
   }
 }
 
-class Span extends Element { // fix
+class Span extends Element { // tbc
   constructor(id, cl, style, content) {
     super(id, cl, style)
     this.content = content;
@@ -216,9 +226,33 @@ class Iframe extends Element { // fix allowfullscreen optionality
   }
 }
 
+class Nav extends Element { // tbc
+    constructor(id, cl, style) {
+        super(id, cl, style)
+    }
+
+    getNav() {
+        return (`<nav id="${this.id}" class="${this.cl}" style="${this.style}"></nav>`)
+    }
+}
+
+class List extends Element {// tbc
+    constructor(id, cl, style, listType, listItem1, ...listItems) {
+        super(id, cl, style);
+        this.listType = listType;
+        this.listItem1 = listItem1;
+    }// make a loop for the list item? ...listItems
+
+    getUl() {
+        return (`
+        <${this.listType} id="${this.id}" class="${this.cl}" style="${this.style}">
+            <li>${this.listItem1}</li>
+        </${this.listType}>`)
+    }
+}
 
 export { Element,
         Div, Img, Paragraph,
         Header, Hr, Input,
         Anchor, Button, Span,
-        Iframe }
+        Iframe, Nav, List }

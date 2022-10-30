@@ -1,171 +1,123 @@
-// :: SECTION ::
-import { basicThemes } from "./sectionThemes.js";
-// :: COMPONENTS ::
-import { bootstrap } from "./components.js"
 // :: ELEMENTS :: 
-import { Div, Iframe } from "./elements.js" 
-
+import { Element,
+  Div, Img, Paragraph,
+  Header, Hr, Input,
+  Anchor, Button, Span,
+  Iframe, Nav, List } from "./elements.js" 
 
 const frame = document.getElementById('frame');
+const overview = document.getElementById('overview');
 const viewBtn = document.getElementById('viewBtn');
 
 viewBtn.addEventListener('click', (e) => {
   console.log(frame);
-})
-
-const alertBtn = document.getElementById('alertBtn');
-const breadcrumbBtn = document.getElementById('breadcrumbBtn');
-const buttonBtn = document.getElementById('buttonBtn');
-const navbarBtn = document.getElementById('navbarBtn');
-const cardBtn = document.getElementById('cardBtn');
-const dropdownBtn = document.getElementById('dropdownBtn');
-
-
-
-breadcrumbBtn.addEventListener('click', (e) => {
-  let x = bootstrap.components.breadcrumb.getBreadcrumb3();
-  frame.innerHTML += x;
-})
-
-buttonBtn.addEventListener('click', (e) => {
-  let x = bootstrap.components.button.getButtonPrimary('Insira o texto');
-  frame.innerHTML += x;
-})
-
-navbarBtn.addEventListener('click', (e) => {
-  let x = bootstrap.components.navbar.getNavBar();
-  frame.innerHTML += x;
-})
-
-cardBtn.addEventListener('click', (e) => {
-  let x = bootstrap.components.card.getCard('./img/amazon.jpeg', 'Insert Title', 'Insert text', 'Read more');
-  frame.innerHTML += x;
-})
-
-dropdownBtn.addEventListener('click', (e) => {
-  let x = bootstrap.components.dropdown.getDropdown('Dropdown button', 'Option 1', 'Option 2', 'Option 3');
-  frame.innerHTML += x;
-})
-
+});
 
 // => THE EDITOR IS THE SETTER.
 
 // editor => 1. put the id (getelementByid). Change this element class object with setter.
 // if btnInp == 'alert', then class tag is div and the class is 'alert alert-primary'. If else chain to avoid putting every component EventListener. Receive a data when the user clicks an not  event listiner
+
+// function putInFrame(thing) {
+//   return frame.innerHTML += thing;
+// }
+
+let globalID = 'nothing';//change this ID when you click in OW 
+let globalElem = 'none';
+console.log(globalID);
+setTimeout(() => console.log(globalID), 5000)
+
+const button = document.getElementById('button');
+button.addEventListener('click', (e) => {
+  // Generate the default element
+  let x = new Button('myBtn', 'btn btn-primary', '', 'Button')
+  // Put inside frame
+  frame.innerHTML += x.getButton();
+  // Generate the overview. The id of the overview will be with the id generator
+  overview.innerHTML += `<button id="${x.getId()}-edit" class="btn text-white">${x.getId()}</button>`
+  // Get the generated element DOM. 
+   // Add an event listner to the ow to generete the form field
+  const elem = document.getElementById(`${x.getId()}-edit`);
+  elem.addEventListener('click', (e) => {
+    const fieldset = document.getElementById('fieldset');
+
+    fieldset.innerHTML = (`
+    <legend>#${x.getId()}</legend>
+    <label>Class:</label>
+    <input id="cl" class="form-control" type="text">
+    <br>
+    <label>Style</label>
+    <input id="style" class="form-control" type="text">
+    <br>
+    <label>Content:</label>
+    <input id="content" class="form-control" type="text">
+    `);
+
+    // change the global variable
+    globalID = x.getId();
+    globalElem = 'button';
+    console.log(globalID);
+  })
+})
+
+const paragraph = document.getElementById('paragraph');
+paragraph.addEventListener('click', (e) => {
+  // Generate the default element
+  let x = new Paragraph('myParagraph', '', '', 'Lorem Ipsum')
+  // Put inside frame
+  frame.innerHTML += x.getParagraph();
+  // Generate the overview. The id of the overview will be with the id generator
+  overview.innerHTML += `<button id="${x.getId()}-edit" class="btn text-white">${x.getId()}</button>`
+  // Get the generated element DOM. 
+   // Add an event listner to the ow to generete the form field
+  const elem = document.getElementById(`${x.getId()}-edit`);
+  elem.addEventListener('click', (e) => {
+    const fieldset = document.getElementById('fieldset');
+
+    fieldset.innerHTML = (`
+    <legend>#${x.getId()}</legend>
+    <label>Class:</label>
+    <input id="cl" class="form-control" type="text">
+    <br>
+    <label>Style</label>
+    <input id="style" class="form-control" type="text">
+    <br>
+    <label>Content:</label>
+    <input id="content" class="form-control" type="text">
+    `);
+
+    // change the global variable
+    globalID = x.getId();
+    globalElem = 'paragraph';
+    console.log(globalID);
+  })
+})
+
+
 const editorForm = document.getElementById('editorForm');
 editorForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const content = document.getElementById('content').value;
+  const cl = document.getElementById('cl').value;
   const style = document.getElementById('style').value;
+  const content = document.getElementById('content').value;
 
-  let x = new Element('div', '', 'alert alert-primary', style, content);
-
-  // x.setContent(content);
-  // x.setStyle(style);
-
-  frame.innerHTML = x.getElement();
-})
-
-
-alertBtn.addEventListener('click', (e) => {
-  let x = new Element('div', '', 'alert alert-primary', null, 'Default text');
-
-  frame.innerHTML += x.getElement();
-})
-
-
-function putInFrame(thing) {
-  return frame.innerHTML = thing;
-}
-
-
-
-const p = new Iframe('myP', 'embed-resposive-item', 'padding: 16px; border-radius: 36px; height: 300px; width: 500px;', 'Some title','https://www.youtube.com/embed/kjoldYi7eH0')
-console.log(p);
-
-putInFrame(p.getIframe());
-
-
-
-
-const navbarBasicBtn = document.getElementById('navbarBasicBtn');
-const heroBasicBtn = document.getElementById('heroBasicBtn');
-const featuresBasicBtn = document.getElementById('featuresBasicBtn');
-const testimonialBasicBtn = document.getElementById('testimonialBasicBtn');
-const calltoactionBasicBtn = document.getElementById('calltoactionBasicBtn');
-const footerBasicBtn = document.getElementById('footerBasicBtn');
-
-navbarBasicBtn.addEventListener('click', (e) => {
-  // parameters: 
-  // logoSrc, brandName, firstItem, secondItem, thirdItem, buttonText
-  let x = basicThemes.getNavbarBasic('./img/maxston-logo.png');
-  frame.innerHTML += x;
-})
-
-heroBasicBtn.addEventListener('click', (e) => {
-  // parameters:
-  // 
-  let x = basicThemes.getHeroBasic();
-  frame.innerHTML += x;
-})
-
-featuresBasicBtn.addEventListener('click', (e) => {
-  let x = basicThemes.getFeaturesBasic();
-  frame.innerHTML += x;
-})
-
-testimonialBasicBtn.addEventListener('click', (e) => {
-  let x = basicThemes.getTestimonialBasic();
-  frame.innerHTML += x;
-})
-
-calltoactionBasicBtn.addEventListener('click', (e) => {
-  let x = basicThemes.getCalltoActionBasic();
-  frame.innerHTML += x;
-})
-
-footerBasicBtn.addEventListener('click', (e) => {
-  let x = basicThemes.getFooterBasic();
-  frame.innerHTML += x;
-})
-
-
-const navbarBasicForm = document.getElementById('navbarBasicForm');
-navbarBasicForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  // parameters: 
-  // logoSrc, brandName, firstItem, secondItem, thirdItem, buttonText
-
-  const navbarLogo = document.getElementById('navbarLogo').value;
-  const navbarBrandname = document.getElementById('navbarBrandname').value;
-  const navbarFirstItem = document.getElementById('navbarFirstItem').value;
-  const navbarSecondItem = document.getElementById('navbarSecondItem').value;
-  const navbarThirdItem = document.getElementById('navbarThirdItem').value;
-  const navbarBtnTxt = document.getElementById('navbarBtnTxt').value;
-
-  let x = basicThemes.getNavbarBasic(navbarLogo, navbarBrandname,
-    navbarFirstItem, navbarSecondItem, navbarThirdItem,
-    navbarBtnTxt);
+  let element = document.getElementById(globalID);//need pick any selected elem. | A data with the ID name should be send here.
   
-  frame.innerHTML += x;
-});
+  if (globalElem == 'button') {
+    element = new Button(globalID, cl, style, content);// new Element type
+    frame.innerHTML += element.getButton();// getElemType  
+    console.log(frame.innerHTML);
+  } else if (globalElem == 'paragraph') {
+    element = new Paragraph(globalID, cl, style, content);
+    frame.innerHTML += element.getParagraph();
+  }
+})
+// what matters is the edit id and the generated button id. 
 
-const heroBasicForm = document.getElementById('heroBasicForm');
-heroBasicForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+// [ ] Change the Class declaration to the elem that should be created
+// [ ] change the getName routine to get the Element necessary. 
 
-  // parameters: 
-  // logoSrc, brandName, firstItem, secondItem, thirdItem, buttonText
 
-  const heroHeadline = document.getElementById('heroHeadline').value;
-  const heroSubHeadline = document.getElementById('heroSubHeadline').value;
-  const btnTxt1 = document.getElementById('btnTxt1').value;
-  const btnTxt2 = document.getElementById('btnTxt2').value;
 
-  let x = basicThemes.getHeroBasic(heroHeadline, heroSubHeadline,
-    btnTxt1, btnTxt2);
-  
-  frame.innerHTML += x;
-});
+// I click the elem btn and then it generate the editor html with his id. And also i get his dom. 
