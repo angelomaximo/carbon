@@ -121,3 +121,9 @@ editorForm.addEventListener('submit', (e) => {
 
 
 // I click the elem btn and then it generate the editor html with his id. And also i get his dom. 
+
+
+
+
+
+

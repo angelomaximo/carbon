@@ -237,19 +237,32 @@ class Nav extends Element { // tbc
 }
 
 class List extends Element {// tbc
-    constructor(id, cl, style, listType, listItem1, ...listItems) {
+    constructor(id, cl, style, listType, ...listItems) {
         super(id, cl, style);
         this.listType = listType;
-        this.listItem1 = listItem1;
+        this.listItems = listItems;
     }// make a loop for the list item? ...listItems
 
+    getLi(listItems) {
+      let arrayList = [];
+      for ( let x = 0; x < listItems.length; x++ ) {
+        arrayList.push(`    <li>${listItems[x]}</li>`);// the space is to ident.
+      }
+
+      return arrayList.join('\n');
+    }
+
     getUl() {
-        return (`
-        <${this.listType} id="${this.id}" class="${this.cl}" style="${this.style}">
-            <li>${this.listItem1}</li>
-        </${this.listType}>`)
+        return (
+        `<${this.listType} id="${this.id}" class="${this.cl}" style="${this.style}>\n`
+        + this.getLi(this.listItems) +
+        `\n</${this.listType}>`)
     }
 }
+
+const yo = new List('', '', '', 'ol', 'item1', 'item2', 'banana');
+
+console.log(yo.getUl());
 
 export { Element,
         Div, Img, Paragraph,

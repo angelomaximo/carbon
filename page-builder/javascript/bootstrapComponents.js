@@ -1,4 +1,5 @@
-// COPY AND PASTE: return (`< id="${this.id}" class="${this.cl}" style="${this.style}">`)
+// COPY AND PASTE: 
+// return (`< id="${this.id}" class="${this.cl}" style="${this.style}">`)
 import { Element } from './elements.js';
 
 class Accordion extends Element {//tbc
@@ -36,7 +37,14 @@ class Badges extends Element {//tbc
 }
 
 class Breadcrumb extends Element {//tbc
+    constructor(id, cl, style) {
+        super(id, cl, style)
+    }
 
+
+    getBreadcrum() {
+        return (`< id="${this.id}" class="${this.cl}" style="${this.style}">`)
+    }
 }
 
 class Buttons extends Element {
