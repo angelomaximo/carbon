@@ -37,13 +37,29 @@ class Badges extends Element {//tbc
 }
 
 class Breadcrumb extends Element {//tbc
-    constructor(id, cl, style) {
+    constructor(id, cl, style, activeItem, listItemsArr, linksArr) {
         super(id, cl, style)
+        this.activeItem = activeItem;// fix
+        this.listItemsArr = listItemsArr;
+        this.linksArr = linksArr;
     }
-
-
-    getBreadcrum() {
-        return (`< id="${this.id}" class="${this.cl}" style="${this.style}">`)
+    getLi(listItems, linksArr) {
+        let arrayList = [];
+        for ( let x = 0; x < listItems.length; x++ ) {
+          arrayList.push(`        <li class="breadcrumb-item" <a href="${linksArr[x]}">${listItems[x]}</a></li>`);// the space is to ident.
+        }
+  
+        return arrayList.join('\n');
+      }
+  
+    getBreadcrumb() {
+        return (
+  `<nav id="${this.id}" class="${this.cl}" style="${this.style}" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+  ${this.getLi(this.listItemsArr, this.linksArr)}
+      </ol>
+  </nav>`
+  )
     }
 }
 

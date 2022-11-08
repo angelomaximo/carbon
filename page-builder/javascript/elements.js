@@ -2,14 +2,19 @@
 // you can add a new element by incrementing the current ID or changing
 // COPY AND PASTE: return (`< id="${this.id}" class="${this.cl}" style="${this.style}">`)
 
+// add the containerId in the others.
 class Element {
-    constructor(id, cl, style) {
+    constructor(containerId, id, cl, style) {
+        this.containerId = containerId
         this.id = id;
         this.cl = cl;
         this.style = style;
     }
 
     // GETTERS \\
+    getContainerId() {
+      return this.containerId;
+    }
     getId() {
       return this.id;
     }
@@ -20,6 +25,9 @@ class Element {
       return this.style;
     }
     // SETTERS \\
+    setContainerId(newContainerId) {
+      this.containerId = newContainerId;
+    }
     setId(newId) {
         this.id = newId;
     }
@@ -68,8 +76,8 @@ class Img extends Element {
 }
 
 class Paragraph extends Element {
-  constructor(id, cl, style, content, weight, fontsize, fontfamily) {
-    super(id, cl, style);
+  constructor(containerId, id, cl, style, content, weight, fontsize, fontfamily) {
+    super(containerId, id, cl, style);
     this.content = content;
     this.weight = weight;
     this.fontsize = fontsize;
@@ -103,7 +111,7 @@ class Paragraph extends Element {
   }
 
   getParagraph() {
-    return (`<p id="${this.id}" class="${this.cl}" style="${this.style}; font-weight: ${this.weight}; font-size: ${this.fontsize}; font-family: ${this.fontfamily};"> ${this.content} </p>`)
+    return (`<div id="${this.containerId}"><p id="${this.id}" class="${this.cl}" style="${this.style}; font-weight: ${this.weight}; font-size: ${this.fontsize}; font-family: ${this.fontfamily};"> ${this.content} </p></div>`)
   }
 }
 
@@ -187,8 +195,8 @@ class Anchor extends Element {
 }
 
 class Button extends Element { // tbc
-  constructor(id, cl, style, content) {
-    super(id, cl, style)
+  constructor(containerId, id, cl, style, content) {
+    super(containerId, id, cl, style)
     this.content = content;
   }
   getContent() {
@@ -199,7 +207,7 @@ class Button extends Element { // tbc
   }
 
   getButton() {
-    return (`<button id="${this.id}" class="${this.cl}" style="${this.style}">${this.content}</button>`)
+    return (`<div id="${this.containerId}"><button id="${this.id}" class="${this.cl}" style="${this.style}">${this.content}</button></div>`)
   }
 }
 
@@ -241,7 +249,7 @@ class List extends Element {// tbc
         super(id, cl, style);
         this.listType = listType;
         this.listItems = listItems;
-    }// make a loop for the list item? ...listItems
+    }
 
     getLi(listItems) {
       let arrayList = [];
@@ -254,15 +262,15 @@ class List extends Element {// tbc
 
     getUl() {
         return (
-        `<${this.listType} id="${this.id}" class="${this.cl}" style="${this.style}>\n`
+        `<${this.listType} id="${this.id}" class="${this.cl}" style="${this.style}">\n`
         + this.getLi(this.listItems) +
         `\n</${this.listType}>`)
     }
 }
 
-const yo = new List('', '', '', 'ol', 'item1', 'item2', 'banana');
 
-console.log(yo.getUl());
+
+
 
 export { Element,
         Div, Img, Paragraph,
